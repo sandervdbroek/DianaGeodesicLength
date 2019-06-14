@@ -18,7 +18,7 @@ GRAVAC  -9.81000E+00\n\
 ")
     for node in range(len(X[:,0])):
         f.write(f"{node+1:5d} {X[node,0]} {X[node,1]} {X[node,2]} \n")
-    f.write(f"'MATERI' \n\
+    f.write(f"MATERI' \n\
    1 YOUNG    2.10000E+11\n\
      POISON   3.00000E-01\n\
      DENSIT   7.80000E+03\n\

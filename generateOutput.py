@@ -18,7 +18,7 @@ GRAVAC  -9.81000E+00\n\
 ")
     for node in range(len(X[:,0])):
         f.write(f"{node+1:5d} {X[node,0]} {X[node,1]} {X[node,2]} \n")
-    f.write(f"MATERI' \n\
+    f.write(f"'MATERI' \n\
    1 YOUNG    2.10000E+11\n\
      POISON   3.00000E-01\n\
      DENSIT   7.80000E+03\n\
@@ -31,7 +31,7 @@ SET  \"Sheet 1\"\n\
 CONNECT\n")
     for el in range(len(F[:,0])):
         f.write(f"{el+1:5d} Q8MEM  {F[el,0]+1} {F[el,1]+1} {F[el,2]+1} {F[el,3]+1} \n")
-    f.write(f"'MATERIAL 1\n\
+    f.write(f"MATERIAL 1\n\
 GEOMETRY 1\n\
 'LOADS'\n\
 CASE 1\n\

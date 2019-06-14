@@ -31,17 +31,12 @@ SET  \"Sheet 1\"\n\
 CONNECT\n")
     for el in range(len(F[:,0])):
         f.write(f"{el+1:5d} Q8MEM  {F[el,0]} {F[el,1]} {F[el,2]} {F[el,3]} \n")
-    f.write(f"'MATERI' \n\
-   1 YOUNG    2.10000E+11\n\
-     POISON   3.00000E-01\n\
-     DENSIT   7.80000E+03\n\
-     CAPACI   1.00000E+00\n\
-     CONDUC   1.00000E+00\n\
-'GEOMET'\n\
-   1 THICK    1.00000E-01\n\
-'ELEMENTS'\n\
-SET  \"Sheet 1\"\n\
-CONNECT")
+    f.write(f"'MATERIAL 1\n\
+GEOMETRY 1\n\
+'LOADS'\n\
+CASE 1\n\
+NAME 'DUMMY'\n\
+'END'")
 
 def generateDcf(timestep):
     return()

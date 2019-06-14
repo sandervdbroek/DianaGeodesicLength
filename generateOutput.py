@@ -30,7 +30,7 @@ GRAVAC  -9.81000E+00\n\
 SET  \"Sheet 1\"\n\
 CONNECT\n")
     for el in range(len(F[:,0])):
-        f.write(f"{el+1:5d} Q8MEM  {F[el,0]} {F[el,1]} {F[el,2]} {F[el,3]} \n")
+        f.write(f"{el+1:5d} Q8MEM  {F[el,0]+1} {F[el,1]+1} {F[el,2]+1} {F[el,3]+1} \n")
     f.write(f"'MATERIAL 1\n\
 GEOMETRY 1\n\
 'LOADS'\n\

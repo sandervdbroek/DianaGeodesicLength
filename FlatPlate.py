@@ -4,10 +4,11 @@
 
 
 import numpy as np
-from plotFunction import *
+# from plotFunction import *
 from generateOutput import *
-import datetime
-
+import platform
+import sys
+import os
 # Configuration
 
 lengthX = 1
@@ -59,4 +60,18 @@ for elementSize in elementSizes:
 
     # Create output files and run them
     for timeStep in timeSteps:
-        now = datetime.datetime.now()
+        DCFfilename = "FP_dX" + str(deltaX) + "_dY" + str(deltaY) + "_t" + str(timeStep) + '.dcf'
+        OUTfilename = "FP_dX" + str(deltaX) + "_dY" + str(deltaY) + "_t" + str(timeStep)
+        generateDcf(DCFfilename,timeStep,numberNodes)
+        if 'linux' in sys.platform:
+            print('TBD')
+        elif 'windows' in sys.platform:
+            print('Runnning' + DCFfilename)
+            os.system('diana' + OUTfilename + DATfilename + DCFfilename)
+        elif 'darwin' in sys.platform:
+            print('Runnning ' + DCFfilename)
+            print('TBD OSX')
+        else:
+            raise RuntimeError("Unsupported operating system: {}".format(sys.platform))
+
+

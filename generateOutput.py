@@ -38,5 +38,24 @@ CASE 1\n\
 NAME 'DUMMY'\n\
 'END'")
 
-def generateDcf(timestep):
-    return()
+def generateDcf(filename,timestep,nnodes):
+    f = open(filename, "w+")
+    f.write(f"*FILOS\n\
+INITIA\n\
+*INPUT\n\
+*RANFLD\n\
+  BEGIN GEODET\n\
+    DTIME {timestep}\n\
+    REFNOD 1-{nnodes}\n\
+    BEGIN OUTPUT TABULA\n\
+      LAYOUT LINPAG 1000000\n\
+      BEGIN SELECT \n\
+        NODES 1-{nnodes} /\n\
+      END SELECT\n\
+      DISTAN\n\
+    END OUTPUT\n\
+    BEGIN OUTPUT NDIANA\n\
+      DISTAN\n\
+    END OUTPUT\n\
+  END GEODET\n\
+*END")

@@ -9,12 +9,14 @@ from generateOutput import *
 import platform
 import sys
 import os
+from readOutput import *
 # Configuration
 
 lengthX = 1
 lengthY = 1
 # elementSizes = [0.01, 0.05, 0.1, 0.2, 0.3, 0.5]
-timeSteps = [0.001, 0.005, 0.01, 0.05, 0.1, 0.5]
+# timeSteps = [0.001, 0.005, 0.01, 0.05, 0.1, 0.5]
+timeSteps = [0.001]
 elementSizes = [0.2]
 i = 3
 j = 0
@@ -73,5 +75,15 @@ for elementSize in elementSizes:
             print('TBD OSX')
         else:
             raise RuntimeError("Unsupported operating system: {}".format(sys.platform))
+        tbFile = OUTfilename + '.tb'
+        LArrayDiana = readTb(tbFile,numberNodes)
+        LError = LengthAnal-LArrayDiana
+        LRelError = LError / (LengthAnal + np.identity(numberNodes))
 
-
+        # Calculate RMS error
+        RMSerror = 0
+        for i in range(numberNodes):
+            for j in range(numberNodes):
+               RMSerror  = LRelError[i,j]**2 + RMSerror
+        RMSerror = np.sqrt(RMSerror)
+        print('t=' + str(timeStep) + ' ' + str(RMSerror))

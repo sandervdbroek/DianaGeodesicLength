@@ -67,7 +67,7 @@ for elementSize in elementSizes:
             print('TBD')
         elif 'win32' in sys.platform:
             print('Runnning' + DCFfilename)
-            os.system('diana' + OUTfilename + DATfilename + DCFfilename)
+            os.system('diana ' + OUTfilename + DATfilename + DCFfilename)
         elif 'darwin' in sys.platform:
             print('Runnning ' + DCFfilename)
             print('TBD OSX')

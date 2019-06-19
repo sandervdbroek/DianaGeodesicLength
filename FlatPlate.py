@@ -65,7 +65,7 @@ for elementSize in elementSizes:
         generateDcf(DCFfilename,timeStep,numberNodes)
         if 'linux' in sys.platform:
             print('TBD')
-        elif 'windows' in sys.platform:
+        elif 'win32' in sys.platform:
             print('Runnning' + DCFfilename)
             os.system('diana' + OUTfilename + DATfilename + DCFfilename)
         elif 'darwin' in sys.platform:

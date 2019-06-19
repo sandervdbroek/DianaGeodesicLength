@@ -79,17 +79,20 @@ for elementSize in elementSizes:
         else:
             raise RuntimeError("Unsupported operating system: {}".format(sys.platform))
         tbFile = OUTfilename + '.tb'
-        LArrayDiana = readTb(tbFile,numberNodes)
-        LError = LengthAnal-LArrayDiana
-        LRelError = LError / (LengthAnal + np.identity(numberNodes))
+        if os.path.isfile(tbFile):
+            LArrayDiana = readTb(tbFile,numberNodes)
+            LError = LengthAnal-LArrayDiana
+            LRelError = LError / (LengthAnal + np.identity(numberNodes))
 
-        # Calculate RMS error
-        RMSerror = 0
-        for i in range(numberNodes):
-            for j in range(numberNodes):
-               RMSerror  = LRelError[i,j]**2 + RMSerror
-        RMSerror = np.sqrt(RMSerror)
-        print('t=' + str(timeStep) + ' ' + str(RMSerror))
+            # Calculate RMS error
+            RMSerror = 0
+            for i in range(numberNodes):
+                for j in range(numberNodes):
+                   RMSerror  = LRelError[i,j]**2 + RMSerror
+            RMSerror = np.sqrt(RMSerror)
+            print('t=' + str(timeStep) + ' ' + str(RMSerror))
+        else:
+            print('WARNING: Failed run detected, skipping output!')
         tindex += 1
     elementindex =+ 1
 np.save('FPError',errorArray)

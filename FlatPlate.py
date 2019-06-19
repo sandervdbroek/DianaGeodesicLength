@@ -14,12 +14,14 @@ from readOutput import *
 
 lengthX = 1
 lengthY = 1
-# elementSizes = [0.01, 0.05, 0.1, 0.2, 0.3, 0.5]
-timeSteps = [0.001, 0.005, 0.01, 0.05, 0.1, 0.5]
+elementSizes = [0.01, 0.05, 0.1, 0.15, 0.2, 0,25, 0.3, 0.35, 0.5]
+timeSteps = [0.0001, 0.0005, 0.001, 0.0025, 0.005, 0.01, 0.02, 0.03, 0.04, 0.05, 0.075, 0.1, 0.125, 0.15, 0.2, 0.3, 0.4, 0.5]
 # timeSteps = [0.001]
-elementSizes = [0.2]
+# elementSizes = [0.2]
 i = 3
 j = 0
+errorArray = np.zeros([len(elementSizes),len(timeSteps)])
+elementindex = 0
 for elementSize in elementSizes:
     nelemX = round(lengthX/elementSize)
     nelemY = round(lengthY/elementSize)
@@ -61,6 +63,7 @@ for elementSize in elementSizes:
     generateDat(X, F,DATfilename)
 
     # Create output files and run them
+    tindex = 0
     for timeStep in timeSteps:
         DCFfilename = "FP_dX" + str(deltaX) + "_dY" + str(deltaY) + "_t" + str(timeStep) + '.dcf'
         OUTfilename = "FP_dX" + str(deltaX) + "_dY" + str(deltaY) + "_t" + str(timeStep)
@@ -87,3 +90,6 @@ for elementSize in elementSizes:
                RMSerror  = LRelError[i,j]**2 + RMSerror
         RMSerror = np.sqrt(RMSerror)
         print('t=' + str(timeStep) + ' ' + str(RMSerror))
+        tindex += 1
+    elementindex =+ 1
+np.save('FPError',errorArray)

@@ -100,5 +100,5 @@ for elementSize in elementSizes:
         tindex += 1
     np.save('FPError', errorArray)
     np.savetxt('FPError.csv', errorArray)
-    elementindex =+ 1
+    elementindex += 1
 # np.save('FPError',errorArray)

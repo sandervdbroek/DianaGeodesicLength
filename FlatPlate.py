@@ -98,6 +98,6 @@ for elementSize in elementSizes:
             print('WARNING: Failed run detected, skipping output!')
         tindex += 1
     np.save('FPError', errorArray)
-    np.savetxt('FPError.csv', arrayToSave)
+    np.savetxt('FPError.csv', errorArray)
     elementindex =+ 1
 # np.save('FPError',errorArray)

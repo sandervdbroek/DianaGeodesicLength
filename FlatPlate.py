@@ -68,7 +68,7 @@ for elementSize in elementSizes:
     for timeStep in timeSteps:
         DCFfilename = "FP_dX" + str(deltaX) + "_dY" + str(deltaY) + "_t" + str(timeStep) + '.dcf'
         OUTfilename = "FP_dX" + str(deltaX) + "_dY" + str(deltaY) + "_t" + str(timeStep)
-        FFfilename =  "FP_dX" + str(deltaX) + "_dY" + str(deltaY) + "_t" + str(timeStep) + '.ff'
+        FFfilename =  "FP.ff"
         generateDcf(DCFfilename,timeStep,numberNodes)
         if 'linux' in sys.platform:
             print('TBD')

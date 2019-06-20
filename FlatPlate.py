@@ -8,6 +8,7 @@ import numpy as np
 from generateOutput import *
 import platform
 import sys
+import os
 import subprocess
 from readOutput import *
 # Configuration

@@ -73,7 +73,7 @@ for elementSize in elementSizes:
             print('TBD')
         elif 'win32' in sys.platform:
             print('Runnning ' + DCFfilename)
-            outStatus = os.system('diana ' + OUTfilename + " " + DATfilename + " " + DCFfilename) + ' ' + FFfilename
+            outStatus = os.system('diana ' + OUTfilename + " " + DATfilename + " " + DCFfilename + ' ' + FFfilename)
             print('Outstatus is ' + str(outStatus))
         elif 'darwin' in sys.platform:
             print('Runnning ' + DCFfilename)

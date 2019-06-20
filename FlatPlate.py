@@ -8,7 +8,7 @@ import numpy as np
 from generateOutput import *
 import platform
 import sys
-import os
+import subprocess
 from readOutput import *
 # Configuration
 
@@ -73,7 +73,7 @@ for elementSize in elementSizes:
             print('TBD')
         elif 'win32' in sys.platform:
             print('Runnning ' + DCFfilename)
-            outStatus = os.system('diana ' + OUTfilename + " " + DATfilename + " " + DCFfilename + ' ' + FFfilename)
+            outStatus = subprocess.call('diana ' + OUTfilename + " " + DATfilename + " " + DCFfilename + ' ' + FFfilename)
             print('Outstatus is ' + str(outStatus))
         elif 'darwin' in sys.platform:
             print('Runnning ' + DCFfilename)

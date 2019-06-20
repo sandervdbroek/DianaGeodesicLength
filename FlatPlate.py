@@ -93,6 +93,7 @@ for elementSize in elementSizes:
                 for j in range(numberNodes):
                    RMSerror  = LRelError[i,j]**2 + RMSerror
             RMSerror = np.sqrt(RMSerror/(numberNodes*numberNodes))
+            errorArray[i,j] = RMSerror
             print('t=' + str(timeStep) + ' ' + str(RMSerror))
         else:
             print('WARNING: Failed run detected, skipping output!')

@@ -67,12 +67,14 @@ for elementSize in elementSizes:
     for timeStep in timeSteps:
         DCFfilename = "FP_dX" + str(deltaX) + "_dY" + str(deltaY) + "_t" + str(timeStep) + '.dcf'
         OUTfilename = "FP_dX" + str(deltaX) + "_dY" + str(deltaY) + "_t" + str(timeStep)
+        FFfilename =  "FP_dX" + str(deltaX) + "_dY" + str(deltaY) + "_t" + str(timeStep) + '.ff'
         generateDcf(DCFfilename,timeStep,numberNodes)
         if 'linux' in sys.platform:
             print('TBD')
         elif 'win32' in sys.platform:
             print('Runnning ' + DCFfilename)
-            os.system('diana ' + OUTfilename + " " + DATfilename + " " + DCFfilename)
+            outStatus = os.system('diana ' + OUTfilename + " " + DATfilename + " " + DCFfilename) + ' ' + FFfilename
+            print('Outstatus is ' + str(outStatus))
         elif 'darwin' in sys.platform:
             print('Runnning ' + DCFfilename)
             print('TBD OSX')

@@ -8,6 +8,7 @@ import numpy as np
 from generateOutput import *
 from scipy import optimize
 from readOutput import *
+from runAnalysis import *
 # Configuration
 
 lengthX = 1
@@ -62,7 +63,7 @@ for elementSize in elementSizes:
 
     # Create output files and run them
     #error = runAnalysis(DATfilename,timeStep,numberNodes,LengthAnal)
-    optiFunc = lambda timeStep: runAnalysis(DATfilename,timeStep,numberNodes,LengthAnal)
+    optiFunc = lambda timeStep: runDiana(DATfilename,timeStep,numberNodes,LengthAnal)
     timeStep = optimize.minimize_scalar(optiFunc)
     print('Timestep for elemsize ' + str(elementSize) + ' ' + str(timeStep))
     # np.save('FPError', errorArray)

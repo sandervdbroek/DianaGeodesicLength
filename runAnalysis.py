@@ -2,7 +2,7 @@ import os
 import sys
 import subprocess
 from readOutput import *
-def runAnalysis(DATfilename,timeStep,numberNodes,LengthAnal):
+def runDiana(DATfilename,timeStep,numberNodes,LengthAnal):
     DCFfilename = os.path.splitext(DATfilename)[0] + '.dat'
     OUTfilename = os.path.splitext(DATfilename)[0]
     generateDcf(DCFfilename, timeStep, numberNodes)

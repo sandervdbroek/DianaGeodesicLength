@@ -65,7 +65,7 @@ for elementSize in elementSizes:
     #error = runAnalysis(DATfilename,timeStep,numberNodes,LengthAnal)
     optiFunc = lambda timeStep: runDiana(DATfilename,timeStep,numberNodes,LengthAnal)
     timeStep = optimize.minimize_scalar(optiFunc)
-    print('Timestep for elemsize ' + str(elementSize) + ' ' + str(timeStep))
+    print('Timestep for elemsize ' + str(elementSize) + ' ' + str(timeStep.x))
     # np.save('FPError', errorArray)
     # np.savetxt('FPError.csv', errorArray)
     errorArray[0, elementindex] = deltaX

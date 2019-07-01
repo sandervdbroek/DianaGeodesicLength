@@ -62,8 +62,8 @@ for elementSize in elementSizes:
 
     # Create output files and run them
     #error = runAnalysis(DATfilename,timeStep,numberNodes,LengthAnal)
-    lambda timeStep: runAnalysis(DATfilename,timeStep,numberNodes,LengthAnal)
-    timeStep = optimize.minimize_scalar(f)
+    optiFunc = lambda timeStep: runAnalysis(DATfilename,timeStep,numberNodes,LengthAnal)
+    timeStep = optimize.minimize_scalar(optiFunc)
     print('Timestep for elemsize ' + str(elementSize) + ' ' + str(timeStep))
     # np.save('FPError', errorArray)
     # np.savetxt('FPError.csv', errorArray)

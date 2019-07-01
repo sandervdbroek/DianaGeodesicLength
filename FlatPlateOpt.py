@@ -70,5 +70,6 @@ for elementSize in elementSizes:
     # np.savetxt('FPError.csv', errorArray)
     errorArray[0, elementindex] = deltaX
     errorArray[1,elementindex] = timeStep.x
+    np.savetxt('FPOptivals.csv', errorArray)
     elementindex += 1
 # np.save('FPError',errorArray)

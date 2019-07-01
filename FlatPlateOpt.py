@@ -19,7 +19,7 @@ elementSizes = [0.1]
 # elementSizes = [0.2]
 i = 3
 j = 0
-errorArray = np.zeros([len(elementSizes)])
+errorArray = np.zeros([2,len(elementSizes)])
 elementindex = 0
 for elementSize in elementSizes:
     nelemX = round(lengthX/elementSize)
@@ -68,6 +68,7 @@ for elementSize in elementSizes:
     print('Timestep for elemsize ' + str(elementSize) + ' ' + str(timeStep))
     # np.save('FPError', errorArray)
     # np.savetxt('FPError.csv', errorArray)
-    # errorArray[elementindex] = RMSerror
+    errorArray[0, elementindex] = deltaX
+    errorArray[1,elementindex] = timeStep.x
     elementindex += 1
 # np.save('FPError',errorArray)

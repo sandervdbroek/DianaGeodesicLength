@@ -8,11 +8,12 @@ def runDiana(DATfilename,timeStep,numberNodes,LengthAnal):
     FFfilename = os.path.splitext(DATfilename)[0] + '.ff'
     OUTfilename = os.path.splitext(DATfilename)[0]
     generateDcf(DCFfilename, timeStep, numberNodes)
+    if os.path.exists("FFfilename"):
+        os.remove("FFfilename")
     if 'linux' in sys.platform:
         print('TBD')
     elif 'win32' in sys.platform:
         print('Runnning ' + DCFfilename)
-        subprocess.call('del ' + FFfilename)
         outStatus = subprocess.call('diana ' + OUTfilename + " " + DATfilename + " " + DCFfilename + ' ' + FFfilename)
         print('Outstatus is ' + str(outStatus))
     elif 'darwin' in sys.platform:

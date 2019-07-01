@@ -5,6 +5,7 @@ from readOutput import *
 from generateOutput import *
 def runDiana(DATfilename,timeStep,numberNodes,LengthAnal):
     DCFfilename = os.path.splitext(DATfilename)[0] + '.dat'
+    FFfilename = os.path.splitext(DATfilename)[0] + '.ff'
     OUTfilename = os.path.splitext(DATfilename)[0]
     generateDcf(DCFfilename, timeStep, numberNodes)
     if 'linux' in sys.platform:

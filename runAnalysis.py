@@ -13,6 +13,8 @@ def runDiana(DATfilename,timeStep,numberNodes,LengthAnal):
         os.remove("FFfilename")
     if os.path.exists(tbFile):
         os.remove(tbFile)
+    if os.path.exists(FFfilename):
+        os.remove(FFfilename)
     if 'linux' in sys.platform:
         print('TBD')
     elif 'win32' in sys.platform:

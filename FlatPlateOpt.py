@@ -19,10 +19,10 @@ elementSizes = [0.025, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.5]
 # elementSizes = [0.2]
 i = 3
 j = 0
-errorArray = np.zeros([2,len(elementSizes)])
+errorArray = np.zeros([3,len(elementSizes)])
 elementindex = 0
 for elementSize in elementSizes:
-    nelemX = round(lengthX/elementSize)
+    nelemX = round(lengthX/elementSize)π
     nelemY = round(lengthY/elementSize)
     numberNodes = (nelemX+1)*(nelemY+1)
     numberElements = nelemX*nelemY
@@ -59,17 +59,23 @@ for elementSize in elementSizes:
             LengthAnal[i,j] = np.linalg.norm(X[i,:]-X[j,:])
     print('Run completed')
     DATfilename = "FP_dX" + str(deltaX) + "_dY" + str(deltaY) + '.dat'
+    tbfilename = DATfilename = "FP_dX" + str(deltaX) + "_dY" + str(deltaY) + '.tb'
     generateDat(X, F,DATfilename)
 
     # Create output files and run them
     #error = runAnalysis(DATfilename,timeStep,numberNodes,LengthAnal)
     optiFunc = lambda timeStep: runDiana(DATfilename,timeStep,numberNodes,LengthAnal)
-    timeStep = optimize.minimize_scalar(optiFunc)
+    timeStep = optimize.minimize_scalar(optiFunc, bounds=(-3, -1), method='bounded', tol=1e-4)
+    LArrayDiana = readTb(tbFile, numberNodes)
+    LError = LengthAnal - LArrayDiana
+    LRelError = LError / (LengthAnal + np.identity(numberNodes))
     print('Timestep for elemsize ' + str(elementSize) + ' ' + str(timeStep.x))
+    print('Error is ' + str(LRelError))
     # np.save('FPError', errorArray)
     # np.savetxt('FPError.csv', errorArray)
     errorArray[0, elementindex] = deltaX
     errorArray[1,elementindex] = timeStep.x
+    errorArray[2,elementindex] = LRelError
     np.savetxt('FPOptivals.csv', errorArray)
     elementindex += 1
 # np.save('FPError',errorArray)

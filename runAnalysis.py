@@ -13,6 +13,7 @@ def runDiana(DATfilename,timeInput,numberNodes,LengthAnal):
         print('timestep is ' + str(timeStep))
     else:
         timeStep = timeInput
+        print('timeStep is not list')
     generateDcf(DCFfilename, timeStep, numberNodes)
     if os.path.exists("FFfilename"):
         os.remove("FFfilename")

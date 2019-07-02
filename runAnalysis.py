@@ -7,9 +7,12 @@ def runDiana(DATfilename,timeStep,numberNodes,LengthAnal):
     DCFfilename = os.path.splitext(DATfilename)[0] + '.dcf'
     FFfilename = os.path.splitext(DATfilename)[0] + '.ff'
     OUTfilename = os.path.splitext(DATfilename)[0]
+    tbFile = OUTfilename + '.tb'
     generateDcf(DCFfilename, timeStep, numberNodes)
     if os.path.exists("FFfilename"):
         os.remove("FFfilename")
+    if os.path.exists(tbFile):
+        os.remove(tbFile)
     if 'linux' in sys.platform:
         print('TBD')
     elif 'win32' in sys.platform:
@@ -21,7 +24,7 @@ def runDiana(DATfilename,timeStep,numberNodes,LengthAnal):
         print('TBD OSX')
     else:
         raise RuntimeError("Unsupported operating system: {}".format(sys.platform))
-    tbFile = OUTfilename + '.tb'
+
     if os.path.isfile(tbFile):
         LArrayDiana = readTb(tbFile, numberNodes)
         LError = LengthAnal - LArrayDiana

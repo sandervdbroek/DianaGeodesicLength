@@ -66,7 +66,7 @@ for elementSize in elementSizes:
     #error = runAnalysis(DATfilename,timeStep,numberNodes,LengthAnal)
     optiFunc = lambda timeStep: runDiana(DATfilename,timeStep,numberNodes,LengthAnal)
     initialguess = ((deltaX+deltaY)/2)**2
-    if     initialguess < 0.01
+    if     initialguess < 0.01:
         initialguess = 0.01
     optiTime = optimize.minimize(optiFunc,[initialguess], bounds=[(0, None)], method='SLSQP', options={'disp': True})
     # timeStep = optimize.minimize_scalar(optiFunc)

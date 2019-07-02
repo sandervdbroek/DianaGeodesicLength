@@ -11,10 +11,10 @@ def runDiana(DATfilename,timeInput,numberNodes,LengthAnal):
     tbFile = OUTfilename + '.tb'
     if isinstance(timeInput, np.ndarray):
         timeStep = timeInput[0]
-        print('timestep is ' + str(timeStep))
+        # print('timestep is ' + str(timeStep))
     else:
         timeStep = timeInput
-        print('timeStep is not list but ' + str(type(timeInput)))
+        # print('timeStep is not list but ' + str(type(timeInput)))
     generateDcf(DCFfilename, timeStep, numberNodes)
     if os.path.exists("FFfilename"):
         os.remove("FFfilename")
@@ -25,7 +25,7 @@ def runDiana(DATfilename,timeInput,numberNodes,LengthAnal):
     if 'linux' in sys.platform:
         print('TBD')
     elif 'win32' in sys.platform:
-        print('Runnning ' + DCFfilename + 'timestep ' + str(timeStep))
+        print('Runnning ' + DCFfilename + ' Timestep ' + str(timeStep))
         outStatus = subprocess.call('diana ' + OUTfilename + " " + DATfilename + " " + DCFfilename + ' ' + FFfilename)
         print('Outstatus is ' + str(outStatus))
     elif 'darwin' in sys.platform:

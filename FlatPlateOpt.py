@@ -90,6 +90,6 @@ for elementSize in elementSizes:
     errorArray[0, elementindex] = deltaX
     errorArray[1,elementindex] = optiTime.x
     errorArray[2,elementindex] = RMSerror
-    # np.savetxt('FPOptivals.csv', errorArray)
+    np.savetxt('FPOptivals.csv', errorArray)
     elementindex += 1
 # np.save('FPError',errorArray)

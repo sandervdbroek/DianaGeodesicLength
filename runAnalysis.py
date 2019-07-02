@@ -1,6 +1,7 @@
 import os
 import sys
 import subprocess
+import numpy as np
 from readOutput import *
 from generateOutput import *
 def runDiana(DATfilename,timeInput,numberNodes,LengthAnal):
@@ -8,7 +9,7 @@ def runDiana(DATfilename,timeInput,numberNodes,LengthAnal):
     FFfilename = os.path.splitext(DATfilename)[0] + '.ff'
     OUTfilename = os.path.splitext(DATfilename)[0]
     tbFile = OUTfilename + '.tb'
-    if isinstance(timeInput, list):
+    if isinstance(timeInput, np.ndarray):
         timeStep = timeInput[0]
         print('timestep is ' + str(timeStep))
     else:

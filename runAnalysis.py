@@ -3,12 +3,16 @@ import sys
 import subprocess
 from readOutput import *
 from generateOutput import *
-def runDiana(DATfilename,timeStep,numberNodes,LengthAnal):
+def runDiana(DATfilename,timeInput,numberNodes,LengthAnal):
     DCFfilename = os.path.splitext(DATfilename)[0] + '.dcf'
     FFfilename = os.path.splitext(DATfilename)[0] + '.ff'
     OUTfilename = os.path.splitext(DATfilename)[0]
     tbFile = OUTfilename + '.tb'
     generateDcf(DCFfilename, timeStep, numberNodes)
+    if isinstance(timeInput, list):
+        timeStep = timeInput[0]
+    else:
+        timeStep = timeInput
     if os.path.exists("FFfilename"):
         os.remove("FFfilename")
     if os.path.exists(tbFile):

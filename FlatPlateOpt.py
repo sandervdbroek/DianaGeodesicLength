@@ -74,7 +74,7 @@ for elementSize in elementSizes:
     LArrayDiana = readTb(tbfilename, numberNodes)
     LError = LengthAnal - LArrayDiana
     LRelError = LError / (LengthAnal + np.identity(numberNodes))
-    print('Timestep for elemsize ' + str(elementSize) + ' ' + str(timeStep.x))
+    print('Timestep for elemsize ' + str(elementSize) + ' ' + str(optiTime.x))
     print('Error is ' + str(LRelError))
     # np.save('FPError', errorArray)
     # np.savetxt('FPError.csv', errorArray)

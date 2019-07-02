@@ -18,7 +18,7 @@ def runDiana(DATfilename,timeStep,numberNodes,LengthAnal):
     if 'linux' in sys.platform:
         print('TBD')
     elif 'win32' in sys.platform:
-        print('Runnning ' + DCFfilename)
+        print('Runnning ' + DCFfilename + 'timestep ' + str(timeStep))
         outStatus = subprocess.call('diana ' + OUTfilename + " " + DATfilename + " " + DCFfilename + ' ' + FFfilename)
         print('Outstatus is ' + str(outStatus))
     elif 'darwin' in sys.platform:

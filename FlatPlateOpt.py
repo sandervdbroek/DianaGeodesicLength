@@ -13,10 +13,10 @@ from runAnalysis import *
 
 lengthX = 1
 lengthY = 1
-elementSizes = [0.025, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.5]
+# elementSizes = [0.025, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.5]
 # timeSteps = [0.001]
 # elementSizes = [0.1]
-# elementSizes = [0.2]
+elementSizes = [0.2]
 i = 3
 j = 0
 errorArray = np.zeros([3,len(elementSizes)])
@@ -68,19 +68,26 @@ for elementSize in elementSizes:
     initialguess = ((deltaX+deltaY)/2)**2
     if     initialguess < 0.01:
         initialguess = 0.01
-    optiTime = optimize.minimize(optiFunc,[initialguess], bounds=[(0, None)], method='L-BFGS-B', options={'disp': True})
+    optiTime = optimize.minimize(optiFunc,[initialguess], bounds=[(0, None)], method='TNC', options={'disp': True})
     # timeStep = optimize.minimize_scalar(optiFunc)
     runDiana(DATfilename, optiTime.x, numberNodes, LengthAnal)
     LArrayDiana = readTb(tbfilename, numberNodes)
     LError = LengthAnal - LArrayDiana
     LRelError = LError / (LengthAnal + np.identity(numberNodes))
+    # Calculate RMS error
+    RMSerror = 0
+    for i in range(numberNodes):
+        for j in range(numberNodes):
+            RMSerror = LRelError[i, j] ** 2 + RMSerror
+    RMSerror = np.sqrt(RMSerror / (numberNodes * numberNodes))
+    print('t=' + str(optiTime.x) + ' ' + str(RMSerror))
     print('Timestep for elemsize ' + str(elementSize) + ' ' + str(optiTime.x))
     print('Error is ' + str(LRelError))
     # np.save('FPError', errorArray)
     # np.savetxt('FPError.csv', errorArray)
     errorArray[0, elementindex] = deltaX
     errorArray[1,elementindex] = optiTime.x
-    errorArray[2,elementindex] = LRelError
-    np.savetxt('FPOptivals.csv', errorArray)
+    errorArray[2,elementindex] = RMSerror
+    # np.savetxt('FPOptivals.csv', errorArray)
     elementindex += 1
 # np.save('FPError',errorArray)

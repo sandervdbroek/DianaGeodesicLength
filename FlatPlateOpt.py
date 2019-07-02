@@ -22,7 +22,7 @@ j = 0
 errorArray = np.zeros([3,len(elementSizes)])
 elementindex = 0
 for elementSize in elementSizes:
-    nelemX = round(lengthX/elementSize)π
+    nelemX = round(lengthX/elementSize)
     nelemY = round(lengthY/elementSize)
     numberNodes = (nelemX+1)*(nelemY+1)
     numberElements = nelemX*nelemY

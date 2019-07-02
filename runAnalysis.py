@@ -10,6 +10,7 @@ def runDiana(DATfilename,timeInput,numberNodes,LengthAnal):
     tbFile = OUTfilename + '.tb'
     if isinstance(timeInput, list):
         timeStep = timeInput[0]
+        print('timestep is ' + str(timeStep))
     else:
         timeStep = timeInput
     generateDcf(DCFfilename, timeStep, numberNodes)

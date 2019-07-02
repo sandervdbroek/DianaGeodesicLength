@@ -68,7 +68,7 @@ for elementSize in elementSizes:
     initialguess = ((deltaX+deltaY)/2)**2
     if     initialguess < 0.01:
         initialguess = 0.01
-    optiTime = optimize.minimize(optiFunc,[initialguess], bounds=[(0, None)], method='L-BFGS-B’', options={'disp': True})
+    optiTime = optimize.minimize(optiFunc,[initialguess], bounds=[(0, None)], method='L-BFGS-B', options={'disp': True})
     # timeStep = optimize.minimize_scalar(optiFunc)
     runDiana(DATfilename, optiTime.x, numberNodes, LengthAnal)
     LArrayDiana = readTb(tbfilename, numberNodes)

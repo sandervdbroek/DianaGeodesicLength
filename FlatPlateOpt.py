@@ -66,11 +66,12 @@ for elementSize in elementSizes:
     #error = runAnalysis(DATfilename,timeStep,numberNodes,LengthAnal)
     optiFunc = lambda timeStep: runDiana(DATfilename,timeStep,numberNodes,LengthAnal)
     initialguess = ((deltaX+deltaY)/2)**2
-    if     initialguess < 0.01:
+    if initialguess < 0.01:
         initialguess = 0.01
     # optiTime = optimize.minimize(optiFunc,[initialguess], bounds=[(0, None)], method='TNC', options={'disp': True})
-    optiTime = optimize.minimize(optiFunc, [initialguess],  method='Powell', options={'disp': True})
-    # timeStep = optimize.minimize_scalar(optiFunc)
+    # optiTime = optimize.minimize(optiFunc, [initialguess],  method='Powell', options={'disp': True})
+    upperbound = initialguess*100
+    timeStep = optimize.minimize_scalar(optiFunc,bounds=(0,upperbound))
     runDiana(DATfilename, optiTime.x, numberNodes, LengthAnal)
     LArrayDiana = readTb(tbfilename, numberNodes)
     LError = LengthAnal - LArrayDiana

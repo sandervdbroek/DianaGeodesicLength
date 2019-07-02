@@ -8,11 +8,11 @@ def runDiana(DATfilename,timeInput,numberNodes,LengthAnal):
     FFfilename = os.path.splitext(DATfilename)[0] + '.ff'
     OUTfilename = os.path.splitext(DATfilename)[0]
     tbFile = OUTfilename + '.tb'
-    generateDcf(DCFfilename, timeStep, numberNodes)
     if isinstance(timeInput, list):
         timeStep = timeInput[0]
     else:
         timeStep = timeInput
+    generateDcf(DCFfilename, timeStep, numberNodes)
     if os.path.exists("FFfilename"):
         os.remove("FFfilename")
     if os.path.exists(tbFile):

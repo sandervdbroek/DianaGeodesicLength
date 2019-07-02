@@ -65,8 +65,9 @@ for elementSize in elementSizes:
     # Create output files and run them
     #error = runAnalysis(DATfilename,timeStep,numberNodes,LengthAnal)
     optiFunc = lambda timeStep: runDiana(DATfilename,timeStep,numberNodes,LengthAnal)
-    timeStep = optimize.minimize_scalar(optiFunc, bounds=(0, 25), method='bounded')
+    optiTime = optimize.minimize_scalar(optiFunc, bounds=(0, 25), method='bounded')
     # timeStep = optimize.minimize_scalar(optiFunc)
+    runDiana(DATfilename, optiTime.x, numberNodes, LengthAnal)
     LArrayDiana = readTb(tbfilename, numberNodes)
     LError = LengthAnal - LArrayDiana
     LRelError = LError / (LengthAnal + np.identity(numberNodes))
@@ -75,7 +76,7 @@ for elementSize in elementSizes:
     # np.save('FPError', errorArray)
     # np.savetxt('FPError.csv', errorArray)
     errorArray[0, elementindex] = deltaX
-    errorArray[1,elementindex] = timeStep.x
+    errorArray[1,elementindex] = optiTime.x
     errorArray[2,elementindex] = LRelError
     np.savetxt('FPOptivals.csv', errorArray)
     elementindex += 1

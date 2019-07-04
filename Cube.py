@@ -18,7 +18,7 @@ lengthY = 1
 lengthZ = 1
 # elementSizes = [0.025, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.5]
 # timeSteps = [0.0001, 0.0005, 0.001, 0.0025, 0.005, 0.01, 0.02, 0.03, 0.04, 0.05, 0.075, 0.1, 0.125, 0.15, 0.2, 0.3, 0.4, 0.5]
-timeSteps = [0.001]
+timeSteps = [0.04]
 elementSizes = [0.2]
 i = 3
 j = 0
@@ -113,7 +113,7 @@ for elementSize in elementSizes:
         else:
             print('WARNING: Failed run detected, skipping output!')
         tindex += 1
-    np.save('FPError', errorArray)
-    np.savetxt('FPError.csv', errorArray)
+    np.save('CUBEError', errorArray)
+    np.savetxt('CUBEError.csv', errorArray)
     elementindex += 1
 # np.save('FPError',errorArray)

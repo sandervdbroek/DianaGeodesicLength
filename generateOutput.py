@@ -29,8 +29,12 @@ GRAVAC  -9.81000E+00\n\
 'ELEMENTS'\n\
 SET  \"Sheet 1\"\n\
 CONNECT\n")
-    for el in range(len(F[:,0])):
-        f.write(f"{el+1:5d} Q8MEM  {F[el,0]+1} {F[el,1]+1} {F[el,2]+1} {F[el,3]+1} \n")
+    if np.size(F, 1) == 4:
+        for el in range(len(F[:,0])):
+            f.write(f"{el+1:5d} Q8MEM  {F[el,0]+1} {F[el,1]+1} {F[el,2]+1} {F[el,3]+1} \n")
+    elif np.size(F, 1) == 8:
+        for el in range(len(F[:, 0])):
+            f.write(f"{el + 1:5d} HX24L  {F[el, 0] + 1} {F[el, 1] + 1} {F[el, 2] + 1} {F[el, 3] + 1} {F[el, 4] + 1} {F[el, 5] + 1} {F[el, 6] + 1} {F[el, 7] + 1} \n")
     f.write(f"MATERIAL 1\n\
 GEOMETRY 1\n\
 'LOADS'\n\

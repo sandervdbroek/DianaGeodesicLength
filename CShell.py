@@ -38,7 +38,7 @@ for elementSize in elementSizes:
     # Nodes
     for k in range(nelemZ+1):
         for l in range(nelelemD):
-            X[l+k * nelelemD,:] = [R*sin(deltaPhi*l),-R*cos(deltaPhi*l),k*deltaZ]
+            X[l+k * nelelemD,:] = [R*np.sin(deltaPhi*l),-R*np.cos(deltaPhi*l),k*deltaZ]
 
     # Connectivity
     for k in range(nelemZ):

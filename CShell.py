@@ -57,10 +57,14 @@ for elementSize in elementSizes:
     #Create length array
     LengthAnal = np.zeros([numberNodes,numberNodes])
     #
+    dDel = np.linalg.norm(X[0,:] - X[1,:])
     for i in range(numberNodes):
         for j in range(numberNodes):
-            1+1
-            LengthAnal[i,j] = np.linalg.norm(X[i,:]-X[j,:])
+            dZ = np.abs(X[i,2] - X[j,2])
+            temp1 = np.mod(i, nelelemD)
+            temp2 = np.mod(j, nelelemD)
+            segs = min([np.abs(temp1-temp2), np.abs(temp1-(temp2-nelelemD))])
+            LengthAnal[i,j] = np.sqrt(dZ**2+(segs*dDel)**2)
     print('Run completed')
     DATfilename = "CShell_dTh" + str(deltaPhi) + "_dz" + str(deltaZ) + '.dat'
     generateDat(X, F,DATfilename)

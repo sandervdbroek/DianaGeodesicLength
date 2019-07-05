@@ -63,7 +63,7 @@ for elementSize in elementSizes:
             dZ = np.abs(X[i,2] - X[j,2])
             temp1 = np.mod(i, nelelemD)
             temp2 = np.mod(j, nelelemD)
-            segs = min([np.abs(temp1-temp2), np.abs(temp1-(nelelemD-temp2))])
+            segs = min([np.abs(temp1-temp2), np.abs(temp1-(temp2-nelelemD))])
             LengthAnal[i,j] = np.sqrt(dZ**2+(segs*dDel)**2)
     print('Run completed')
     DATfilename = "CShell_dTh" + str(deltaPhi) + "_dz" + str(deltaZ) + '.dat'

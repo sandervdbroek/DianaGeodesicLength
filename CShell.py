@@ -44,7 +44,7 @@ for elementSize in elementSizes:
     for k in range(nelemZ):
         for l in range(nelelemD):
             if l+1 == nelelemD:
-                F[l + k * nelelemD, :] = [l + 1+nelelemD*k,  2+nelelemD*k,  1+nelelemD*(k+1), l + 2+nelelemD*(k+1)]
+                F[l + k * nelelemD, :] = [l + 1+nelelemD*k,  2+nelelemD*k,  1+nelelemD*(k+1), l + 1+nelelemD*(k+1)]
             else:
                 F[l + k * nelelemD, :] = [l + 1+nelelemD*k, l + 2+nelelemD*k, l + 2+nelelemD*(k+1), l + 1+nelelemD*(k+1)]
 

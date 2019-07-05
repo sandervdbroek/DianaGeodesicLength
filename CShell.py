@@ -25,7 +25,7 @@ elementindex = 0
 for elementSize in elementSizes:
     nelemZ = round(lengthZ / elementSize)
     nelelemD = round(2*R*np.pi/elementSize)
-    numberNodes = nelelemD+(nelemZ+1)
+    numberNodes = nelelemD*(nelemZ+1)
     numberElements = nelelemD*nelemZ
     deltaPhi = 2*np.pi/nelelemD
     deltaZ = lengthZ / nelemZ

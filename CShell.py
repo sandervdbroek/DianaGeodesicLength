@@ -64,9 +64,9 @@ for elementSize in elementSizes:
             temp1 = np.mod(i, nelelemD)
             temp2 = np.mod(j, nelelemD)
             if temp1 > temp2:
-                segs = min([np.abs(temp1-temp2), np.abs(temp1-nelelemD+temp2)])
+                segs = min([np.abs(temp1-temp2), np.abs(temp1-nelelemD)+temp2])
             elif temp2 > temp1:
-                segs = min([np.abs(temp2 - temp1), np.abs(temp2 - nelelemD + temp1)])
+                segs = min([np.abs(temp2 - temp1), np.abs(temp2 - nelelemD) + temp1])
             else:
                 segs = 0
             LengthAnal[i,j] = np.sqrt(dZ**2+(segs*dDel)**2)

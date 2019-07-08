@@ -12,6 +12,7 @@ import os
 import subprocess
 from readOutput import *
 from runAnalysis import *
+from scipy import optimize
 # Configuration
 
 R = 1

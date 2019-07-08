@@ -21,7 +21,7 @@ elementSizes = [0.075, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.5]
 # timeSteps = [0.04]
 # elementSizes = [0.2]
 
-errorArray = np.zeros([len(elementSizes),len(timeSteps)])
+errorArray = np.zeros([len(elementSizes)])
 elementindex = 0
 for elementSize in elementSizes:
     nelemZ = round(lengthZ / elementSize)

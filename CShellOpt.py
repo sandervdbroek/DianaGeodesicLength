@@ -102,7 +102,7 @@ for elementSize in elementSizes:
     print('Error is ' + str(LRelError))
     # np.save('FPError', errorArray)
     # np.savetxt('FPError.csv', errorArray)
-    errorArray[0, elementindex] = deltaX
+    errorArray[0, elementindex] = deltaZ
     errorArray[1, elementindex] = optiTime.x
     errorArray[2, elementindex] = RMSerror
     np.savetxt('CShellOpt.csv', errorArray)

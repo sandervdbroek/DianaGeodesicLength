@@ -22,7 +22,7 @@ elementSizes = [0.075, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.5]
 # timeSteps = [0.04]
 # elementSizes = [0.2]
 
-errorArray = np.zeros([len(elementSizes)])
+errorArray = np.zeros([4,len(elementSizes)])
 elementindex = 0
 for elementSize in elementSizes:
     nelemZ = round(lengthZ / elementSize)
@@ -103,8 +103,9 @@ for elementSize in elementSizes:
     # np.save('FPError', errorArray)
     # np.savetxt('FPError.csv', errorArray)
     errorArray[0, elementindex] = deltaZ
-    errorArray[1, elementindex] = optiTime.x
-    errorArray[2, elementindex] = RMSerror
+    errorArray[1, elementindex] = R*deltaPhi
+    errorArray[2, elementindex] = optiTime.x
+    errorArray[3, elementindex] = RMSerror
     np.savetxt('CShellOpt.csv', errorArray)
     elementindex += 1
 # np.save('FPError',errorArray)

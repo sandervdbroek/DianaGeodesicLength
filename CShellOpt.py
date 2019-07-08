@@ -74,6 +74,8 @@ for elementSize in elementSizes:
             LengthAnal[i,j] = np.sqrt(dZ**2+(segs*dDel)**2)
     print('Run completed')
     DATfilename = "CShell_dTh" + str(deltaPhi) + "_dz" + str(deltaZ) + '.dat'
+    tbfilename  = "CShell_dTh" + str(deltaPhi) + "_dz" + str(deltaZ) + '.tb'
+
     generateDat(X, F,DATfilename)
 
     # Create output files and run them

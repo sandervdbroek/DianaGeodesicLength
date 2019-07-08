@@ -77,7 +77,7 @@ for elementSize in elementSizes:
 
     # Create output files and run them
     optiFunc = lambda timeStep: runDiana(DATfilename, timeStep, numberNodes, LengthAnal)
-    initialguess = ((deltaX + deltaY) / 2) ** 2
+    initialguess = ((deltaZ + R*deltaPhi) / 2) ** 2
     if initialguess < 0.01:
         initialguess = 0.01
     # optiTime = optimize.minimize(optiFunc,[initialguess], bounds=[(0, None)], method='TNC', options={'disp': True})

@@ -16,7 +16,7 @@ from scipy import optimize
 # Configuration
 
 R = 1
-lengthZ = 2
+lengthZ = 3
 elementSizes = [0.075, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.5]
 # timeSteps = [0.0001, 0.0005, 0.001, 0.0025, 0.005, 0.01, 0.02, 0.03, 0.04, 0.05, 0.075, 0.1, 0.125, 0.15, 0.2, 0.3, 0.4, 0.5]
 # timeSteps = [0.04]

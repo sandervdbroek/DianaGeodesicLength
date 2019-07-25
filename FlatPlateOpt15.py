@@ -58,8 +58,8 @@ for elementSize in elementSizes:
             1+1
             LengthAnal[i,j] = np.linalg.norm(X[i,:]-X[j,:])
     print('Run completed')
-    DATfilename = "FP_dX" + str(deltaX) + "_dY" + str(deltaY) + '.dat'
-    tbfilename  = "FP_dX" + str(deltaX) + "_dY" + str(deltaY) + '.tb'
+    DATfilename = "FP15_dX" + str(deltaX) + "_dY" + str(deltaY) + '.dat'
+    tbfilename  = "FP15_dX" + str(deltaX) + "_dY" + str(deltaY) + '.tb'
     generateDat(X, F,DATfilename)
 
     # Create output files and run them
@@ -92,4 +92,4 @@ for elementSize in elementSizes:
     errorArray[2,elementindex] = RMSerror
     np.savetxt('FPOptivals1m5.csv', errorArray)
     elementindex += 1
-# np.save('FPError',errorArray)
+# np.save('FPError',errorArray)π

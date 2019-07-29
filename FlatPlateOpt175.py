@@ -12,7 +12,7 @@ from runAnalysis import *
 # Configuration
 
 lengthX = 1
-lengthY = 2.5
+lengthY = 1.75
 elementSizes = [0.025, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.5]
 # timeSteps = [0.001]
 # elementSizes = [0.1]
@@ -58,8 +58,8 @@ for elementSize in elementSizes:
             1+1
             LengthAnal[i,j] = np.linalg.norm(X[i,:]-X[j,:])
     print('Run completed')
-    DATfilename = "FP25_dX" + str(deltaX) + "_dY" + str(deltaY) + '.dat'
-    tbfilename  = "FP25_dX" + str(deltaX) + "_dY" + str(deltaY) + '.tb'
+    DATfilename = "FP175_dX" + str(deltaX) + "_dY" + str(deltaY) + '.dat'
+    tbfilename  = "FP175_dX" + str(deltaX) + "_dY" + str(deltaY) + '.tb'
     generateDat(X, F,DATfilename)
 
     # Create output files and run them

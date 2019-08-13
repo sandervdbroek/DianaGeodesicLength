@@ -12,8 +12,8 @@ from runAnalysis import *
 # Configuration
 
 lengthX = 1
-lengthY = 2
-lengthZ = 3
+lengthY = 1
+lengthZ = 1
 elementSizes = [0.125, 0.15, 0.2, 0.25, 0.3, 0.35, 0.5]
 # timeSteps = [0.001]
 # elementSizes = [0.1]
@@ -73,8 +73,8 @@ for elementSize in elementSizes:
             1+1
             LengthAnal[i,j] = np.linalg.norm(X[i,:]-X[j,:])
     print('Run completed')
-    DATfilename = "CUBE123_dX" + str(deltaX) + "_dY" + str(deltaY) + '.dat'
-    tbfilename  = "CUBE123_dX" + str(deltaX) + "_dY" + str(deltaY) + '.tb'
+    DATfilename = "CUBE111_dX" + str(deltaX) + "_dY" + str(deltaY) + '.dat'
+    tbfilename  = "CUBE111_dX" + str(deltaX) + "_dY" + str(deltaY) + '.tb'
     generateDat(X, F,DATfilename)
 
     # Create output files and run them
@@ -105,6 +105,6 @@ for elementSize in elementSizes:
     errorArray[0, elementindex] = deltaX
     errorArray[1,elementindex] = optiTime.x
     errorArray[2,elementindex] = RMSerror
-    np.savetxt('CubeOptivals123.csv', errorArray)
+    np.savetxt('CubeOptivals111.csv', errorArray)
     elementindex += 1
 # np.save('FPError',errorArray)

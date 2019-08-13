@@ -14,7 +14,7 @@ from runAnalysis import *
 lengthX = 1
 lengthY = 1
 lengthZ = 3
-elementSizes = [0.075, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.5]
+elementSizes = [0.125, 0.15, 0.2, 0.25, 0.3, 0.35, 0.5]
 # timeSteps = [0.001]
 # elementSizes = [0.1]
 # elementSizes = [0.2]

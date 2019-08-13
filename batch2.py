@@ -1,2 +1,3 @@
-exec(open("CShellOpt1m5.py").read())
-exec(open("CShellOpt1m75.py").read())
+exec(open("CubeOpt112.py").read())
+exec(open("CubeOpt122.py").read())
+exec(open("CubeOpt123.py").read())

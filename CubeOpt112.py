@@ -57,7 +57,8 @@ for elementSize in elementSizes:
                 p6 = p2 + nnx*nny
                 p7 = p3 + nnx*nny
                 p8 = p4 + nnx*nny
-                F[l + k * nelemX + m * nelemX * nelemZ, :] = [p1, p2, p3, p4, p5, p6, p7, p8]
+                F[m + l * nelemX + k * nelemY * nelemZ, :] = [p1, p2, p3, p4, p5, p6, p7, p8]
+                # F[l + k * nelemX + m * nelemX * nelemZ, :] = [p1, p2, p3, p4, p5, p6, p7, p8]
 
 
 
